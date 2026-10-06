@@ -1,0 +1,50 @@
+# Save as: .github/workflows/heartbeat.yml  (in your Busy-pond/Busy-pond repo)
+#
+# Runs every Monday 06:00 UTC, but only commits when the number of weeks since
+# ANCHOR_DATE is a multiple of 15 (i.e. once every 105 days).
+# You can also trigger it manually from the Actions tab (workflow_dispatch).
+
+name: Heartbeat
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  ANCHOR_DATE: "2026-10-12"   # first commit date (a Monday); change if you like
+  INTERVAL_WEEKS: "15"
+  GIT_NAME: "Busy-pond"
+  GIT_EMAIL: "shreyaforb@gmail.com"   # must be a verified email on your GitHub account
+
+jobs:
+  heartbeat:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check whether this is a 15-week mark
+        id: gate
+        run: |
+          ANCHOR=$(date -u -d "$ANCHOR_DATE" +%s)
+          NOW=$(date -u +%s)
+          WEEKS=$(( (NOW - ANCHOR) / 604800 ))
+          echo "Weeks since anchor: $WEEKS"
+          RUN=false
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then RUN=true; fi
+          if [ "$WEEKS" -ge 0 ] && [ $(( WEEKS % INTERVAL_WEEKS )) -eq 0 ]; then RUN=true; fi
+          echo "run=$RUN" >> "$GITHUB_OUTPUT"
+
+      - name: Append heartbeat entry and push
+        if: steps.gate.outputs.run == 'true'
+        run: |
+          mkdir -p .heartbeat
+          echo "heartbeat $(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> .heartbeat/log.txt
+          git config user.name  "$GIT_NAME"
+          git config user.email "$GIT_EMAIL"
+          git add .heartbeat/log.txt
+          git commit -m "chore: heartbeat $(date -u +%F)"
+          git push
