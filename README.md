@@ -229,22 +229,18 @@ WORKFLOW    :  Iterative, artifact-driven builds with a working deliverable at e
 
 <div align="center">
 
-[![Streak](https://nirzak-streak-stats.vercel.app/?user=Busy-pond&theme=dark&hide_border=true&background=0d1117&ring=00C2FF&fire=00F5FF&currStreakLabel=00C2FF&sideLabels=7EC8E3&dates=7EC8E3&currStreakNum=ffffff&sideNums=ffffff)](https://github.com/Busy-pond)
-
-[![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=Busy-pond&theme=react-dark&bg_color=0d1117&color=00C2FF&line=00F5FF&point=ffffff&hide_border=true&area=true&area_color=00C2FF)](https://github.com/Busy-pond)
-
-[![Trophy](https://github-profile-trophy.vercel.app/?username=Busy-pond&theme=darkhub&no-frame=true&no-bg=true&margin-w=6&column=6)](https://github.com/Busy-pond)
+[![Streak](https://streak-stats.demolab.com/?user=Busy-pond&theme=dark&hide_border=true&background=0d1117&ring=00C2FF&fire=00F5FF&currStreakLabel=00C2FF&sideLabels=7EC8E3&dates=7EC8E3&currStreakNum=ffffff&sideNums=ffffff)](https://github.com/Busy-pond)
 
 </div>
 
-## `> CONTRIBUTION_MAP`
+## `> ARCADE_MODE`
 
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Busy-pond/Busy-pond/output/github-contribution-grid-snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Busy-pond/Busy-pond/output/github-contribution-grid-snake.svg" />
-  <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/Busy-pond/Busy-pond/output/github-contribution-grid-snake-dark.svg" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Busy-pond/Busy-pond/output/pacman-contribution-graph-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Busy-pond/Busy-pond/output/pacman-contribution-graph.svg" />
+  <img alt="pacman contribution graph" src="https://raw.githubusercontent.com/Busy-pond/Busy-pond/output/pacman-contribution-graph-dark.svg" />
 </picture>
 
 <br/><br/>
